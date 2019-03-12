@@ -48,11 +48,11 @@ if [[ $LEN -lt 64 ]] ; then
     if [[ -e ${CACHE}/${CACHED_NAME} ]] ; then
         cp ${CACHE}/${CACHED_NAME} $AUDIO_NAME
     else
-        ${GOOGLE_TTS_DIR} ${AUDIO_NAME} ${LANCODE} "${TEXT}"
+        ${GOOGLE_TTS_DIR}/src/ttsREST.sh ${AUDIO_NAME} ${LANCODE} "${TEXT}"
         if [[ -s ${AUDIO_NAME} ]]; then
             cp ${AUDIO_NAME} ${CACHE}/${CACHED_NAME}
         fi
     fi
 else
-    ${GOOGLE_TTS_DIR} ${AUDIO_NAME} ${LANCODE} "${TEXT}"
+    ${GOOGLE_TTS_DIR}/src/ttsREST.sh ${AUDIO_NAME} ${LANCODE} "${TEXT}"
 fi
