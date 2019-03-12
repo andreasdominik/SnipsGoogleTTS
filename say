@@ -1,4 +1,4 @@
-# !/bin/bash -xv
+#!/bin/bash -xv
 #
 # interface to TTS services: say a sentence with sox locally
 # usage:
