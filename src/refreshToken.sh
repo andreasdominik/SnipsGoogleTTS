@@ -18,7 +18,7 @@
 
 # check if a new access token is neccessary:
 #
-TMP_TOKEN="${TTS_GOOGLE}/Credentials/GOOGLE_TMP_ACCESS_TOKEN"
+TMP_TOKEN="${GOOGLE_TTS_DIR}/Credentials/GOOGLE_TMP_ACCESS_TOKEN"
 
 if (! test -e $TMP_TOKEN ) || test "$(find $TMP_TOKEN -type f -mmin +30)" ; then
   echo "refresh Google access token"
