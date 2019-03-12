@@ -5,6 +5,11 @@
 #
 # $ say filename language text as many words as necessary
 #
+# to make Snips use the script, change the tts-section of the
+# file /etc/snips.toml:
+# uncomment line # customtts
+# command = ["saySnips.sh", "%%OUTPUT_FILE%%", "%%LANG%%", "%%TEXT%%"]
+#
 # languages: any language, such as de, en, etc.
 #            for de-DE and en-GB the voices "de-DE-Wavenet-C" and
 #            "en-GB-Wavenet-A" are pre-selected.
