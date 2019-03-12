@@ -12,13 +12,26 @@ LANGUAGE=$1
 shift
 TEXT="$@"
 
+case $LANGUAGE in
+    de)
+        COUNTRY="DE"
+        ;;
+    en)
+        COUNTRY="GB"
+        ;;
+    *)
+        COUNTRY="$(echo $COUNTRY | tr a-z A-Z)"
+        ;;
+esac
+LANCODE="${LANGUAGE}-${COUNTRY}"
+
 # language-specfic cache:
 #
 CACHE=${TTS_GOOGLE}/Cache
-if [[ ! -d "${CACHE}/$LANGUAGE" ]] ; then
-    mkdir "${CACHE}/$LANGUAGE"
+if [[ ! -d "${CACHE}/$LANCODE" ]] ; then
+    mkdir "${CACHE}/$LANCODE"
 fi
-CACHE="${CACHE}/${LANGUAGE}"
+CACHE="${CACHE}/${LANCODE}"
 
 TTS_SERVICE=${TTS_GOOGLE}/src/ttsREST.sh
 
@@ -31,11 +44,11 @@ if [[ $LEN -lt 64 ]] ; then
     if [[ -e ${CACHE}/${CACHED_NAME} ]] ; then
         cp ${CACHE}/${CACHED_NAME} $AUDIO_NAME
     else
-        ${TTS_SERVICE} ${AUDIO_NAME} ${LANGUAGE} "${TEXT}"
+        ${TTS_SERVICE} ${AUDIO_NAME} ${LANCODE} "${TEXT}"
         if [[ -s ${AUDIO_NAME} ]]; then
             cp ${AUDIO_NAME} ${CACHE}/${CACHED_NAME}
         fi
     fi
 else
-    ${TTS_SERVICE} ${AUDIO_NAME} ${LANGUAGE} "${TEXT}"
+    ${TTS_SERVICE} ${AUDIO_NAME} ${LANCODE} "${TEXT}"
 fi
