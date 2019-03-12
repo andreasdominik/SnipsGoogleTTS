@@ -22,6 +22,7 @@ TMP_TOKEN="${GOOGLE_TTS_DIR}/Credentials/GOOGLE_TMP_ACCESS_TOKEN"
 
 if (! test -e $TMP_TOKEN ) || test "$(find $TMP_TOKEN -type f -mmin +30)" ; then
   echo "refresh Google access token"
+  GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_TTS_DIR}/Credentials/google-credentials.json
   echo "$(gcloud auth application-default print-access-token)" > $TMP_TOKEN
 
   # check if successful:
