@@ -38,6 +38,23 @@ sudo chown YOUR.USER.NAME SnipsHelpers
 git clone git@github.com:andreasdominik/SnipsGoogleTTS.git
 ```
 
+If you like, you can add a symbolic link to the executables from a directory in the
+path, such as `/usr/local/bin`:
+```
+cd \usr\local\bin
+sudo ln -s /opt/SnipsHelpers/SnipsGoogleTTS/say
+sudo ln -s /opt/SnipsHelpers/SnipsGoogleTTS/saySnips
+```
+
+You can test the intallation by calling say, as:
+```
+say file.wav en Hello I am snips. How are you?
+```
+
+All generated audio files will be added to the cache, so the `say`-command
+can be used to add sentences to the cache.
+
+
 ### 3. Prepare the environment for the google API
 
 Go through Google's tutorial [Quickstart: Using the command line](https://cloud.google.com/text-to-speech/docs/quickstart-protocol).
@@ -66,8 +83,20 @@ Text-to-Speech API.
 
 ### 4. Tell Snips to use SnipsGoogleTTS
 
-Edit the section ```### ``` of the file ```/etc/snips.toml``` and
-change the two lines as shown:
+Edit the section ```[snips-tts]``` of the file ```/etc/snips.toml``` and
+change the two lines defining the custom tts settings as shown:
+
+```
+[snips-tts]
+## Choose one tts provider (defaults to picotts)
+# provider = "picotts"
+# provider = "makerstts"
+provider = "customtts"
+## customtts specific configuration (here configured to use picotts using the en-US language)
+## available placeholder variables : %%OUTPUT_FILE%%, %%LANG%%, %%TEXT%%
+customtts = { command = ["/opt/Snips/GoogleTTS4Snips/saySnips", "%%OUTPUT_FILE%%", "%%LANG%    %", "%%TEXT%%"] }
+```
+
 
 
 ## Caveat
