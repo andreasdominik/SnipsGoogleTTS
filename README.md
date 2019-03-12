@@ -16,10 +16,10 @@ Installation comprises 4 steps:
 The scripts depend on some installed software:
 * git for installation
 * curl for sending the POST requests to the REST API
-* base64 for decoding the audio file dent by Google (in the coreutils package):
+* base64 for decoding the audio file retrieved from Google (in the coreutils package):
 
 ```
-sudo apt-get install git-core curl base64
+sudo apt-get install git-core curl coreutils
 ```
 
 
@@ -55,7 +55,7 @@ $ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/JSON/file
 To make it permanent add the command to the file `.bashrc` in the home
 directory of the user that runs Snips on the Raspberry Pie.
 
-As last step the Cloud SDK must be intsalled.
+As last step the Cloud SDK must be installed.
 To check the installation run
 ```
 $ gcloud auth application-default print-access-token
@@ -67,7 +67,7 @@ Text-to-Speech API.
 ### 4. Tell Snips to use SnipsGoogleTTS
 
 Edit the section ```### ``` of the file ```/etc/snips.toml``` and
-change teh two lines as shown:
+change the two lines as shown:
 
 
 ## Caveat
@@ -76,6 +76,6 @@ Please be aware that the Google-Text-to-Speach runs on Google's servers
 and no longer locally on your Raspberry Pi but instead is shared with
 Google.
 
-Do not install this scripts, if you want to keep everything locally!
+Do not install this scripts, if you want to keep everything local!
 
 eof.
