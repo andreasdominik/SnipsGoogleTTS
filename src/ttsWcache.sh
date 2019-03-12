@@ -3,7 +3,11 @@
 # retrieve a sound file from Google TTS
 # and write it to a cache in order to be re-used
 #
-# usage:
+# (c) Andreas Dominik
+# THM University of Applied Sciences
+# Gießen, DE
+#
+# License: GPL3
 #
 
 AUDIO_NAME=$1
