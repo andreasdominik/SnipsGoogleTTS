@@ -42,10 +42,10 @@ Verify that the two scripts `say` and `saySnips` are exectuable
 (permissons `-rwxr-xr-x`) and all files and directories are readable
 (three `r`s) and the directory Cache must be writable for everybody
 (three `w`s).
-`ls -l` should output something like:
+`ls -l` should read somehow like:
 ```
-drwxr-xr-x 4 andreas andreas 4096 Mär 13 10:03 Cache
-drwxr-xr-x 2 andreas andreas 4096 Mär 13 10:03 Credentials
+drwxrwxrwx 4 andreas andreas 4096 Mär 13 10:03 Cache
+drwxrwxrwx 2 andreas andreas 4096 Mär 13 10:03 Credentials
 -rw-r--r-- 1 andreas andreas 7653 Mär 13 10:03 LICENSE
 -rw-r--r-- 1 andreas andreas 2988 Mär 13 10:03 README.md
 -rwxr-xr-x 1 andreas andreas  762 Mär 13 10:03 say
