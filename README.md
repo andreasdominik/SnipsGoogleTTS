@@ -45,7 +45,7 @@ Verify that the two scripts `say` and `saySnips` are exectuable
 `ls -l` should read somehow like:
 ```
 drwxrwxrwx 4 andreas andreas 4096 Mär 13 10:03 Cache
-drwxrwxrwx 2 andreas andreas 4096 Mär 13 10:03 Credentials
+drwxr-xr-x 2 andreas andreas 4096 Mär 13 10:03 Credentials
 -rw-r--r-- 1 andreas andreas 7653 Mär 13 10:03 LICENSE
 -rw-r--r-- 1 andreas andreas 2988 Mär 13 10:03 README.md
 -rwxr-xr-x 1 andreas andreas  762 Mär 13 10:03 say
