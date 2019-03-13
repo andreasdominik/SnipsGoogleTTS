@@ -26,7 +26,7 @@ sudo apt-get install git-core curl coreutils
 
 ### 2. Get SnipsGoogleTTS scripts
 
-The scripts can be stored anywhere on the computer, running Snips (most
+The scripts can be stored anywhere on the computer running Snips (most
 probably a Raspberry Pie). A good location is for example
 `/opt/SnipsHelpers/SnipsGoogleTTS`.
 To install, just change to the target directory and clone the
@@ -34,21 +34,20 @@ repository:
 ```
 cd /opt
 sudo mkdir SnipsHelpers
-sudo chown YOUR.USER.NAME SnipsHelpers
+sudo chown <YOUR.USER.NAME> SnipsHelpers
 git clone git@github.com:andreasdominik/SnipsGoogleTTS.git
 ```
 
-If you like, you can add a symbolic link to the executables from a directory in the
+If you like, you can add a symbolic link to the say-executable from a directory in the
 path, such as `/usr/local/bin`:
 ```
 cd \usr\local\bin
 sudo ln -s /opt/SnipsHelpers/SnipsGoogleTTS/say
-sudo ln -s /opt/SnipsHelpers/SnipsGoogleTTS/saySnips
 ```
 
 You can test the intallation by calling say, as:
 ```
-say file.wav en Hello I am snips. How are you?
+say en Hello I am snips. How are you?
 ```
 
 All generated audio files will be added to the cache, so the `say`-command
@@ -57,20 +56,17 @@ can be used to add sentences to the cache.
 
 ### 3. Prepare the environment for the google API
 
+#### Google-side setup:
 Go through Google's tutorial [Quickstart: Using the command line](https://cloud.google.com/text-to-speech/docs/quickstart-protocol).
 
-In summary a Google Cloud Platform Project is needed, the Cloud Text-to-Speech
-API must be enabled and the JSON-file with the credentials must be downloaded.
-The file can be stored anywhere on the local file system (the Credentials
-sub-directory of SnipsGoogleTTS is a good place) and the environment variable
-GOOGLE_APPLICATION_CREDENTIALS must point to the file.
+In summary ...
+* a Google Cloud Platform Project is needed,
+* the Cloud Text-to-Speech API must be enabled and
+* the JSON-file with the credentials must be downloaded.
 
-For testing enter the command:
-```
-$ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/JSON/file
-```
-To make it permanent add the command to the file `.bashrc` in the home
-directory of the user that runs Snips on the Raspberry Pie.
+#### Local setup:
+Save the json file with the credentials in the `Credentials` sub-directory
+of SnipsGoogleTT and rename it to `google-credentials.json`.
 
 As last step the Cloud SDK must be installed.
 To check the installation run
