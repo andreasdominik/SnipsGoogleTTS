@@ -63,7 +63,7 @@ chmod -R 777 Cache
 If you like, you can add a symbolic link to the say-executable from a directory in the
 path, such as `/usr/local/bin`:
 ```
-cd \usr\local\bin
+cd /usr/local/bin
 sudo ln -s /opt/SnipsHelpers/SnipsGoogleTTS/say
 ```
 
@@ -71,9 +71,13 @@ You can test the intallation by calling say, as:
 ```
 say en Hello I am snips. How are you?
 ```
+The first argument is the language code; all other args will be concatenated
+as text to be spoken.
 
-All generated audio files will be added to the cache, so the `say`-command
-can be used to add sentences to the cache.
+All generated audio files will be added to the cache. Therefore the `say`-command
+can be used to explicitly add sentences to the cache (Snips will make
+no on-line requests for already cached sentences).
+If you want to change the voice, the must be deleted.
 
 
 ### 3. Prepare the environment for the google API
@@ -85,6 +89,7 @@ In summary ...
 * a Google Cloud Platform Project is needed,
 * the Cloud Text-to-Speech API must be enabled and
 * the JSON-file with the credentials must be downloaded.
+
 
 #### Local setup:
 Save the json file with the credentials in the `Credentials` sub-directory
@@ -119,10 +124,16 @@ customtts = { command = ["/opt/Snips/GoogleTTS4Snips/saySnips", "%%OUTPUT_FILE%%
 
 ## Caveat
 
+#### Privacy:
 Please be aware that the Google-Text-to-Speach runs on Google's servers
-and no longer locally on your Raspberry Pi but instead is shared with
-Google.
+and no longer locally on your Raspberry Pi. All text sent to the TTS is
+shared with Google (only once, because of caching).
 
-Do not install this scripts, if you want to keep everything local!
+**Do not install this scripts, if you want to keep everything private!**
+
+#### Cost:
+Be aware that the Google Cloud services are **not** for free. However costs
+for the TTS are managable (mostly in the range of some Cents per year).
+
 
 eof.
