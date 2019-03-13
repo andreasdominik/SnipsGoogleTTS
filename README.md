@@ -120,7 +120,7 @@ change the two lines defining the custom tts settings as shown:
 provider = "customtts"
 ## customtts specific configuration (here configured to use picotts using the en-US language)
 ## available placeholder variables : %%OUTPUT_FILE%%, %%LANG%%, %%TEXT%%
-customtts = { command = ["/opt/Snips/GoogleTTS4Snips/saySnips", "%%OUTPUT_FILE%%", "%%LANG%    %", "%%TEXT%%"] }
+customtts = { command = ["/opt/Snips/GoogleTTS4Snips/saySnips", "%%OUTPUT_FILE%%", "%%LANG%%", "%%TEXT%%"] }
 ```
 
 
