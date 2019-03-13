@@ -73,8 +73,8 @@ echo $JSON > request.json
 # check if a new accesstoken is neccessary:
 # (token is valid about 60 mins)
 #
-TMP_TOKEN="${GOOGLE_TTS_DIR}/Credentials/GOOGLE_TMP_ACCESS_TOKEN"
-${GOOGLE_TTS_DIR}/src/refreshToken.sh
+TMP_TOKEN="GOOGLE_TMP_ACCESS_TOKEN"
+${GOOGLE_TTS_DIR}/src/refreshToken.sh $TMP_TOKEN
 ACCESS_TOKEN="$( cat $TMP_TOKEN )"
 
 curl -XPOST\
