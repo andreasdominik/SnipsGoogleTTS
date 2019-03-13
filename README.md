@@ -74,10 +74,13 @@ say en Hello I am snips. How are you?
 The first argument is the language code; all other args will be concatenated
 as text to be spoken.
 
+#### Caching and voices:
 All generated audio files will be added to the cache. Therefore the `say`-command
 can be used to explicitly add sentences to the cache (Snips will make
 no on-line requests for already cached sentences).
-If you want to change the voice, the must be deleted.
+
+If you want to change the voice for a language (this can be configured in the
+script `ttsREST.sh`), the cache for this language must be deleted.
 
 
 ### 3. Prepare the environment for the google API
