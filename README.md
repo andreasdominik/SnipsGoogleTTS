@@ -38,6 +38,28 @@ sudo chown <YOUR.USER.NAME> SnipsHelpers
 git clone git@github.com:andreasdominik/SnipsGoogleTTS.git
 ```
 
+Verify that the two scripts `say` and `saySnips` are exectuable
+(permissons `-rwxr-xr-x`) and all files and directories are readable
+(three `r`s) and the directory Cache must be writable for everybody
+(three `w`s).
+`ls -l` should output something like:
+```
+drwxr-xr-x 4 andreas andreas 4096 Mär 13 10:03 Cache
+drwxr-xr-x 2 andreas andreas 4096 Mär 13 10:03 Credentials
+-rw-r--r-- 1 andreas andreas 7653 Mär 13 10:03 LICENSE
+-rw-r--r-- 1 andreas andreas 2988 Mär 13 10:03 README.md
+-rwxr-xr-x 1 andreas andreas  762 Mär 13 10:03 say
+-rwxr-xr-x 1 andreas andreas  947 Mär 13 10:03 saySnips
+drwxr-xr-x 2 andreas andreas 4096 Mär 13 10:03 src
+```
+
+If necessary change the permissions as:
+```
+chmod 755 say saySnips
+cdmod -R a+r *
+chmod -R 777 Cache
+```
+
 If you like, you can add a symbolic link to the say-executable from a directory in the
 path, such as `/usr/local/bin`:
 ```
