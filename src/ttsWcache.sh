@@ -24,7 +24,7 @@ case $LANGUAGE in
         COUNTRY="GB"
         ;;
     *)
-        COUNTRY="$(echo $COUNTRY | tr a-z A-Z)"
+        COUNTRY="$(echo $LANGUAGE | tr a-z A-Z)"
         ;;
 esac
 LANCODE="${LANGUAGE}-${COUNTRY}"
