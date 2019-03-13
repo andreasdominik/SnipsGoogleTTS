@@ -3,7 +3,7 @@
 # interface to TTS services: say a sentence with sox locally
 # usage:
 #
-# $ say filename language text as many words as necessary
+# $ say language text as many words as necessary
 #
 # languages: any language, such as de, en, etc.
 #            for de-DE and en-GB the voices "de-DE-Wavenet-C" and
@@ -18,8 +18,8 @@
 #
 # License: GPL3
 #
-AUDIO_NAME=$1
-shift
+
+AUDIO_NAME=goggletts.wav
 LANGUAGE=$1
 shift
 TEXT="$@"
