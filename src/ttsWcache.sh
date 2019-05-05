@@ -24,6 +24,7 @@ case $LANGUAGE in
         COUNTRY="GB"
         ;;
     *)
+        LANGUAGE="$(echo ${LANGUAGE:0:2} | tr A-Z a-z)"
         COUNTRY="$(echo $LANGUAGE | tr a-z A-Z)"
         ;;
 esac
