@@ -16,6 +16,11 @@ LANGUAGE=$1
 shift
 TEXT="$@"
 
+# set umask to 000 in order to make cached wav-files and
+# temp access token readeble and writable to everybody
+#
+umask 000
+
 case $LANGUAGE in
     de)
         COUNTRY="DE"
