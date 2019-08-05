@@ -24,6 +24,10 @@ LANGUAGE=$1
 shift
 TEXT="$@"
 
+# temp access token for gcloud access:
+#
+TMP_TOKEN="/tmp/google_tmp_access.token"
+
 # define voices:
 #
 if [[ $LANGUAGE == de-DE ]] ; then
@@ -73,7 +77,6 @@ echo $JSON > request.json
 # check if a new accesstoken is neccessary:
 # (token is valid about 60 mins)
 #
-TMP_TOKEN="GOOGLE_TMP_ACCESS_TOKEN"
 ${GOOGLE_TTS_DIR}/src/refreshToken.sh $TMP_TOKEN
 ACCESS_TOKEN="$( cat $TMP_TOKEN )"
 
